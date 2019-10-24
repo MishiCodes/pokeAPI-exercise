@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -58,8 +60,11 @@ public class Controller {
      * @param pokemon to be searched.
      */
     private void searchPokemon(String pokemon) {
-        Pokemon pokemonFromApi = jsonManager.readJsonPokemon(RequestHandler.makeHTTPRequest("pokemon",
-                                    pokemon.trim().replace(".","").replace(" ","-")).toLowerCase());
+        String response = RequestHandler.makeHTTPRequest("pokemon",
+                pokemon.trim().replace(".","").replace(" ","-").toLowerCase());
+
+        Pokemon pokemonFromApi = jsonManager.readJsonPokemon(response);
+
         if (pokemonFromApi != null){
             view.printPokemon(pokemonFromApi.toString());
         }
@@ -73,8 +78,10 @@ public class Controller {
      * @param location to be searched.
      */
     private void searchLocation(String location) {
-        Location locationFromApi = jsonManager.readJsonLocations(RequestHandler.makeHTTPRequest("location",
-                location.trim().replace(".","").replace(" ","-")).toLowerCase());
+        String response = RequestHandler.makeHTTPRequest("location",
+                location.trim().replace(".","").replace(" ","-").toLowerCase());
+
+        Location locationFromApi = jsonManager.readJsonLocations(response);
 
         if (locationFromApi != null){
             view.printLocationRegion(locationFromApi.getRegionOfLocation());
@@ -91,8 +98,11 @@ public class Controller {
      * @param type to be searched.
      */
     private void searchType(String type) {
-        ArrayList<Type> typeFromApi = jsonManager.readJsonPokemonType(RequestHandler.makeHTTPRequest("type",
-                type.trim().replace(".","").replace(" ","-")).toLowerCase());
+        String response = RequestHandler.makeHTTPRequest("type",
+                type.trim().replace(".","").replace(" ","-").toLowerCase());
+
+        ArrayList<Type> typeFromApi = jsonManager.readJsonPokemonType(response);
+
         if (typeFromApi != null){
             typeFromApi.stream()
                         .forEach(typeFinal -> view.printType(typeFinal.toString()));
