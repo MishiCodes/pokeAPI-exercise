@@ -1,3 +1,5 @@
+package pokemon;
+
 /**
  * This class represents a Pokemon.
  */
@@ -8,6 +10,14 @@ public class Pokemon {
     private long pokemonWeight;
     private String pokemonType;
 
+    /**
+     * Pokemon constructor.
+     * @param pokemonID
+     * @param pokemonName
+     * @param pokemonHeight
+     * @param pokemonWeight
+     * @param pokemonType
+     */
     public Pokemon(long pokemonID, String pokemonName, long pokemonHeight, long pokemonWeight, String pokemonType) {
         this.pokemonID = pokemonID;
         this.pokemonName = pokemonName;
@@ -15,25 +25,18 @@ public class Pokemon {
         this.pokemonWeight = pokemonWeight;
         this.pokemonType = pokemonType;
     }
-    public long getPokemonID() {
-        return pokemonID;
-    }
-    public String getPokemonName() {
-        return pokemonName;
-    }
-    public long getPokemonHeight() {
-        return pokemonHeight;
-    }
-    public long getPokemonWeight() {
-        return pokemonWeight;
-    }
+
+    /**
+     * Get the pokemon type.
+     * @return the type of the pokemon.
+     */
     public String getPokemonType() {
         return pokemonType;
     }
 
     @Override
     public String toString() {
-        return "Pokemon{" +
+        return ">> Pokemon {" +
                 "ID = " + pokemonID +
                 ", Name = '" + pokemonName + '\'' +
                 ", Height = " + pokemonHeight +

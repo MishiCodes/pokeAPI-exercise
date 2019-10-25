@@ -1,3 +1,5 @@
+package manager;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -9,10 +11,10 @@ import java.util.Scanner;
 public class RequestHandler {
 
     /**
-     * Method that retrieves information from the server
-     * @param type
-     * @param name
-     * @return
+     * Method that retrieves information from the server.
+     * @param type the type of the field being searched (type, pokemon, location).
+     * @param name the name of the field being searched.
+     * @return String representing a Json object.
      */
     public static String makeHTTPRequest(String type, String name) {
         String urlString = "https://pokeapi.co/api/v2/" + type + "/" + name;

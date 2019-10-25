@@ -1,3 +1,5 @@
+package manager;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -5,6 +7,7 @@ import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import pokemon.*;
 
 /**
  * A class that reads and writes JSON files.
@@ -19,6 +22,7 @@ public class JsonManager {
 
     /**
      * Reads the JSON with locations and retrieves a list.
+     * @param locations a location in json format.
      * @return a location.
      */
     public Location readJsonLocations(String locations){
@@ -65,6 +69,7 @@ public class JsonManager {
 
     /**
      * Reads the JSON with Pokemons and retrieves a list.
+     * @param pokemon a pokemon in Json format
      * @return a Pokemon.
      */
     public Pokemon readJsonPokemon(String pokemon) {
@@ -100,8 +105,8 @@ public class JsonManager {
 
     /**
      * Reads the JSON type of a pokemon.
-     * @param type
-     * @return
+     * @param type of pokemon.
+     * @return a list of damage types.
      */
     public ArrayList<Type> readJsonPokemonType(String type) {
         ArrayList<Type> weaknessAndStrength = new ArrayList<>();
@@ -110,15 +115,16 @@ public class JsonManager {
             JSONObject jsonObject = (JSONObject) parser.parse(type);
             JSONObject damageRelations = (JSONObject) jsonObject.get("damage_relations");
             String damage;
+
             // loop locations array
-            for (int index = 0; index < Damage.TYPES.length; index++) {
-                JSONArray noDamTo = (JSONArray) damageRelations.get(Damage.TYPES[index]);
+            for (int index = 0; index < DamageLevel.damageList().size(); index++) {
+                JSONArray noDamTo = (JSONArray) damageRelations.get(DamageLevel.damageList().get(index));
                 Iterator<String> iterator = noDamTo.iterator();
                 while (iterator.hasNext()) {
                     Object slide = iterator.next();
                     JSONObject jsonObject2 = (JSONObject) slide;
                     damage = (String) jsonObject2.get("name");
-                    weaknessAndStrength.add(new Type(Damage.TYPES[index], damage));
+                    weaknessAndStrength.add(new Type(DamageLevel.damageList().get(index), damage));
                 }
             }
         } catch (ParseException e) {

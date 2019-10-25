@@ -1,3 +1,5 @@
+package pokemon;
+
 import java.util.ArrayList;
 
 /**
@@ -9,8 +11,8 @@ public class Location {
 
     /**
      * Class constructor.
-     * @param locationName
-     * @param regionOfLocation
+     * @param locationName The names of a location.
+     * @param regionOfLocation THe region of a location
      */
     public Location(ArrayList<String> locationName, String regionOfLocation) {
         this.locationName = locationName;
@@ -19,14 +21,14 @@ public class Location {
 
     /**
      * Get location's name.
-     * @return list of Strings
+     * @return list of Strings with location names in several languages.
      */
     public ArrayList<String> getLocationName() { return locationName;
     }
 
     /**
      * Get location's region.
-     * @return
+     * @return a region as a String.
      */
     public String getRegionOfLocation() {
         return regionOfLocation;

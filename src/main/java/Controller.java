@@ -1,4 +1,5 @@
-import org.w3c.dom.ls.LSOutput;
+import manager.*;
+import pokemon.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -67,6 +68,10 @@ public class Controller {
 
         if (pokemonFromApi != null){
             view.printPokemon(pokemonFromApi.toString());
+            //Print the type properties
+            String type = pokemonFromApi.getPokemonType();
+            view.printPokemonType(type);
+            searchType(type);
         }
         else{
             view.printNoPokemonFound();

@@ -29,7 +29,7 @@ public class View {
     }
 
     /**
-     * Print a message asking for any input to return to the main menu
+     * Print a message asking for any input to return to the main menu.
      */
     public void printReturnMenu() {
         System.out.println(">> Please, press Enter to return to the menu");
@@ -74,14 +74,14 @@ public class View {
      * Print the searched location.
      */
     public void printLocation(String location) {
-        System.out.println("Location name = " + location);
+        System.out.println(">> Location name = " + location);
     }
 
     /**
      * Print the location region.
      */
     public void printLocationRegion(String region) {
-        System.out.println("Region = " + region);
+        System.out.println(">> Region = " + region);
     }
 
     /**
@@ -92,23 +92,30 @@ public class View {
     }
 
     /**
-     * Print a message saying that Type wasnt found.
+     * Print a message saying that Type wasn't found.
      */
     public void printNoTypeFound() {
         System.out.println(">> Type not found. Did you insert a valid type?");
     }
 
     /**
-     * Print a message saying that Location wasnt found.
+     * Print a message saying that Location wasn't found.
      */
     public void printNoLocationFound() {
         System.out.println(">> Location not found. Did you insert the correct location name?");
     }
 
     /**
-     * Print a message saying that Pokemon wasnt found.
+     * Print a message saying that Pokemon wasn't found.
      */
     public void printNoPokemonFound() {
         System.out.println(">> Pokemon not found. Did you insert the correct pokemon name?");
+    }
+
+    /**
+     * Print a message saying what is the type of the Pokemon and its damage levels.
+     */
+    public void printPokemonType(String type) {
+        System.out.println(">> \'" + type + "\' type properties:");
     }
 }
